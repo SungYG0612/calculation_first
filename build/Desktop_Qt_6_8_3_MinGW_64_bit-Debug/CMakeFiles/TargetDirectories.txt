@@ -1,0 +1,9 @@
+C:/GitHub/Study/First/lcd_first/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/lcd_first.dir
+C:/GitHub/Study/First/lcd_first/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/GitHub/Study/First/lcd_first/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/GitHub/Study/First/lcd_first/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+C:/GitHub/Study/First/lcd_first/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/install.dir
+C:/GitHub/Study/First/lcd_first/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+C:/GitHub/Study/First/lcd_first/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+C:/GitHub/Study/First/lcd_first/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/lcd_first_autogen_timestamp_deps.dir
+C:/GitHub/Study/First/lcd_first/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/lcd_first_autogen.dir
