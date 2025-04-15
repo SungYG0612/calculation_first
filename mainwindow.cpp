@@ -193,7 +193,8 @@ void MainWindow::on_clearButton_pressed()
     num1=0;
     num2=0;
     num_show=0;
-    status1, status2=0;
+    status1=0;
+    status2=0;
     num_now=false;
     ui->lcdNumber->display(num_show);
 }

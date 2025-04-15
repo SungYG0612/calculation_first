@@ -18,13 +18,13 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>110</y>
+      <y>80</y>
       <width>411</width>
-      <height>61</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="digitCount">
-     <number>13</number>
+     <number>10</number>
     </property>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
