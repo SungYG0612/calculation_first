@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>resourse/pngwing.com.png</file>
+        <file>resourse/pngwing.com (1).png</file>
+        <file>resourse/pngwing.com (2).png</file>
+    </qresource>
+    <qresource prefix="/images"/>
+</RCC>
