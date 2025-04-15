@@ -16,186 +16,191 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+double num_show=0;
+double num1, num2=0;
+unsigned int status1, status2=0;
+bool num_now=false;
 
-
-int num_list[50] {0};
-int status_list[50] {0};
-unsigned int step=0;
-bool nowNum;
-int result;
-int i=0;
-int sumNum;
-
-void pressNum(int inNum)
+void num_set(int inNum)
 {
-    if(inNum){
-        if(i){
-            i=i*10+inNum;
-        }
-        else{
-            i+=inNum;
-        }
-    }
-    else{
-        if(i){
-            i=i*10;
-        }
-    }
-    nowNum=true;
-}
-void operating(int inOp)
-{
-    if(nowNum)
+    if(status1)
     {
-        num_list[step]=i;
-        status_list[step]=inOp;
-        step++;
-        i=0;
-        nowNum=false;
+        num2=num2*10+inNum;
+        num_show=num2;
     }
     else
     {
-        status_list[--step]=inOp;
-        step++;
+        num1=num1*10+inNum;
+        num_show=num1;
     }
+    num_now=true;
 }
-void cal_result()
-{
 
-    for(int j=0;j<step;j++)
+void num_cal(int inStatus)
+{
+    if(status1!=0&&status1!=5)
     {
-        switch(status_list[j])
+        if(num_now)
         {
-        case 1:
-            sumNum=num_list[j]+num_list[j+1];
-            num_list[j+1]=sumNum;
-            break;
-        case 2:
-            sumNum=num_list[j]-num_list[j+1];
-            num_list[j+1]=sumNum;
-            break;
-        case 3:
-            sumNum=num_list[j]*num_list[j+1];
-            num_list[j+1]=sumNum;
-            break;
-        case 4:
-            sumNum=num_list[j]/num_list[j+1];
-            num_list[j+1]=sumNum;
-            break;
-        case 5:
-            i=num_list[j];
-            break;
+            status2=inStatus;
+            switch (status1) {
+            case 1:
+                num_show=num1+num2;
+                break;
+            case 2:
+                num_show=num1-num2;
+                break;
+            case 3:
+                num_show=num1*num2;
+                break;
+            case 4:
+                num_show=num1/num2;
+                break;
+            default:
+                break;
+            }
+            status1=status2;
+            num1=num_show;
+            num2=0;
         }
+        else
+        {
+            status2=inStatus;
+        }
+    }
+    else
+    {
+        status1=inStatus;
+    }
+        num_now = false;
+}
+
+void num_erase()
+{
+    if(status1)
+    {
+        num2=int(num2/10);
+        num_show=num2;
+    }
+    else
+    {
+        num1=int(num1/10);
+        num_show=num1;
     }
 }
 
 void MainWindow::on_pushButton_pressed()
 {
-    pressNum(1);
-    ui->lcdNumber->display(i);
+    num_set(1);
+    ui->lcdNumber->display(num_show);
 }
 
 void MainWindow::on_pushButton_2_pressed()
 {
-    pressNum(2);
-    ui->lcdNumber->display(i);
+    num_set(2);
+    ui->lcdNumber->display(num_show);
 }
 
 void MainWindow::on_pushButton_3_pressed()
 {
-    pressNum(3);
-    ui->lcdNumber->display(i);
+    num_set(3);
+    ui->lcdNumber->display(num_show);
 }
 
 void MainWindow::on_pushButton_4_pressed()
 {
-    pressNum(4);
-    ui->lcdNumber->display(i);
+    num_set(4);
+    ui->lcdNumber->display(num_show);
 }
 
 void MainWindow::on_pushButton_5_pressed()
 {
-    pressNum(5);
-    ui->lcdNumber->display(i);
+    num_set(5);
+    ui->lcdNumber->display(num_show);
 }
 
 void MainWindow::on_pushButton_6_pressed()
 {
-    pressNum(6);
-    ui->lcdNumber->display(i);
+    num_set(6);
+    ui->lcdNumber->display(num_show);
 }
 
 void MainWindow::on_pushButton_7_pressed()
 {
-    pressNum(7);
-    ui->lcdNumber->display(i);
+    num_set(7);
+    ui->lcdNumber->display(num_show);
 }
 
 void MainWindow::on_pushButton_8_pressed()
 {
-    pressNum(8);
-    ui->lcdNumber->display(i);
+    num_set(8);
+    ui->lcdNumber->display(num_show);
 }
 
 void MainWindow::on_pushButton_9_pressed()
 {
-    pressNum(9);
-    ui->lcdNumber->display(i);
+    num_set(9);
+    ui->lcdNumber->display(num_show);
 }
 
 void MainWindow::on_pushButton_10_pressed()
 {
-    pressNum(0);
-    ui->lcdNumber->display(i);
+    num_set(0);
+    ui->lcdNumber->display(num_show);
 }
+
+
+void MainWindow::on_pushButton_add_pressed()
+{
+    num_cal(1);
+    ui->lcdNumber->display(num_show);
+}
+
+void MainWindow::on_pushButton_sub_pressed()
+{
+    num_cal(2);
+    ui->lcdNumber->display(num_show);
+}
+
+void MainWindow::on_pushButton_mul_pressed()
+{
+    num_cal(3);
+    ui->lcdNumber->display(num_show);
+}
+
+void MainWindow::on_pushButton_div_pressed()
+{
+    num_cal(4);
+    ui->lcdNumber->display(num_show);
+}
+
+void MainWindow::on_pushButton_equl_pressed()
+{
+    num_cal(5);
+    ui->lcdNumber->display(num_show);
+}
+
+
+void MainWindow::on_backspace_pressed()
+{
+    if(num_now) num_erase();
+    ui->lcdNumber->display(num_show);
+}
+
 
 void MainWindow::on_clearButton_pressed()
 {
-    if(i){
-        i=0;
-    }
-    ui->lcdNumber->display(i);
-    for(size_t j=0; j<=step; j++)
-    {
-        num_list[j]=0;
-        status_list[j]=0;
-    }
+    num1=0;
+    num2=0;
+    num_show=0;
+    status1, status2=0;
+    num_now=false;
+    ui->lcdNumber->display(num_show);
 }
+
 
 void MainWindow::on_lcdNumber_overflow()
 {
     ui->lcdNumber->display("error");
 }
 
-
-void MainWindow::on_pushButton_add_pressed()
-{
-    operating(1);
-
-}
-
-
-void MainWindow::on_pushButton_sub_pressed()
-{
-    operating(2);
-}
-
-
-void MainWindow::on_pushButton_mul_pressed()
-{
-    operating(3);
-}
-
-
-void MainWindow::on_pushButton_div_pressed()
-{
-    operating(4);
-}
-
-
-void MainWindow::on_pushButton_equl_pressed()
-{
-    operating(5);
-    cal_result();
-    ui->lcdNumber->display(i);
-}

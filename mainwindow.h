@@ -52,6 +52,8 @@ private slots:
 
     void on_pushButton_equl_pressed();
 
+    void on_backspace_pressed();
+
 private:
     Ui::MainWindow *ui;
 };
